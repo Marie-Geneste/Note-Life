@@ -1,0 +1,86 @@
+.login-page-container {
+    display: flex;
+    flex-direction: column;
+    width: 68vw;
+    gap: 2rem;
+}
+
+.added-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 4rem 1rem 0;
+}
+
+.added-img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.notes-decoration-container {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+
+.notes-decoration {
+    background-color: #EDEBF1;
+    box-shadow: 2px 6px 4px 0px rgba(0, 0, 0, 0.50);
+    width: 10rem;
+    text-align: center;
+    padding: 1rem 0 1.5rem 0;
+}
+
+.title-container {
+    display: flex;
+    margin: 2rem;
+    gap: 2rem;
+    justify-content: center;
+    align-items:first baseline;
+}
+
+.title-connect {
+    font-size: 3rem;
+}
+
+.question-connect {
+    font-size: 1.7rem;
+}
+
+.signin-button {
+    border-radius: 5px;
+    border: 1px solid #000;
+    background: #982FEB;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.input-login-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input {
+    border-radius: 10px;
+    width: 15rem;
+    background: #EDEBF1;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+    font-size: 1.3rem;
+    padding-left: 0.5rem;
+}
+
+.login-button {
+    border-radius: 5px;
+    border: 1px solid #000;
+    background: #982FEB;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem;
+    cursor: pointer;
+}
