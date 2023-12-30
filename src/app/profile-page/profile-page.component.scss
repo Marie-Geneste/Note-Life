@@ -1,4 +1,4 @@
-.signup-page-container {
+.profile-page-container {
     display: flex;
     flex-direction: column;
     width: 68vw;
@@ -10,9 +10,9 @@
     align-items: center;
 }
 
-.title-signup {
+.title-profile {
     font-size: 2.5rem;
-    margin: 3rem 3rem 2rem 3rem;
+    margin: 3rem;
 }
 
 .back-button {
@@ -25,7 +25,7 @@
     cursor: pointer;
 }
 
-.input-signup-container {
+.input-profile-container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -41,7 +41,12 @@ input {
     padding-left: 0.5rem;
 }
 
-.signup-button {
+.button-container {
+    display: flex;
+    gap: 10rem;
+}
+
+.edit-button {
     border-radius: 5px;
     border: 1px solid #000;
     background: #982FEB;
@@ -50,5 +55,46 @@ input {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding: 0.5rem;
     cursor: pointer;
-    margin-top: 1rem;
+    margin: 1rem;
+}
+
+.delete-button {
+    border-radius: 5px;
+    border: 1px solid #000;
+    background: #EB3A2F;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 30rem;
+    font-size: 1.5rem;
+}
+
+.label label, .label input {
+    flex: 1;
+}
+
+.logout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    flex-direction: column;
+}
+
+.logout-title {
+    font-size: 2rem;
+}
+
+.power-off-img {
+    width: 3rem;
+    margin: 1rem;
 }

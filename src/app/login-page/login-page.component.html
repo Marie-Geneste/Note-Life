@@ -38,11 +38,17 @@
                 <a href="/signup"><button class="signin-button">Inscription</button></a>
             </div>
         </div>
-        <div class="input-login-container">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Mot de passe">
-            <button class="login-button">Connexion</button>
-        </div>
+
+        <form action="/" method="post" class="input-login-container">
+            <label for="email"></label>
+            <input type="email" placeholder="Email" id="email" name="email" required>
+
+            <label for="password"></label>
+            <input type="password" placeholder="Mot de passe" id="password" name="password" required>
+            
+            <button class="login-button" type="submit">Connexion</button>
+        </form>
+        <a href="/profile"><button class="login-button">Voir profil version bêta</button></a>
     </div> 
 </div>
 
