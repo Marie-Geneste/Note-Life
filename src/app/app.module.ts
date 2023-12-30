@@ -10,6 +10,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoginPageComponent,
     SideBarComponent,
     SignupPageComponent,
+    Page404Component,
     
   ],
   imports: [
