@@ -120,8 +120,7 @@ const userController = {
 
             //Utilisatation d'un token avec jwt pour enregistrer le user et l'envoyer au front
             const payload = {
-                sub: existingUser.id,
-                isAdmin: existingUser.role_id
+                sub: existingUser.id
             };
 
             const token = jwt.sign(payload, process.env.JWT_SECRET, {

@@ -33,8 +33,6 @@ export class SignupPageComponent {
     const passwordConfirm = this.signupForm.get('passwordConfirm')!.value;
     const pseudo = this.signupForm.get('pseudo')!.value;
 
-    console.log(email, password, passwordConfirm, pseudo);
-
     this.authService.signup(email, password, passwordConfirm, pseudo).subscribe(
       (response) => {
         // Gérer la réponse après l'inscription réussie

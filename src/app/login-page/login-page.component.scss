@@ -83,3 +83,12 @@ input {
     padding: 0.5rem;
     cursor: pointer;
 }
+
+.login-button:disabled {
+    cursor: not-allowed;
+}
+
+p{
+    color: red;
+    font-size: 1.3rem;
+}
