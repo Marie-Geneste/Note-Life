@@ -3,19 +3,31 @@
         <div class="title-signup">Inscription</div>
         <a href="/"><button class="back-button">Retour</button></a> 
     </div>
-    <form action="/" method="post" class="input-signup-container">
-        <label for="email"></label>
-        <input type="email" placeholder="Email" id="email" name="email" required>
+    <form class="input-signup-container" [formGroup]="signupForm">
 
-        <label for="password"></label>
-        <input type="password" placeholder="Mot de passe" id="password" name="password" required>
+        <div class="input-container">
+            <label for="email" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">Veuillez saisir une adresse e-mail valide.</label>
+            <input type="email" placeholder="Email" id="email" formControlName="email">
+        </div>
 
-        <label for="passwordConfirm"></label>
-        <input type="passwordConfirm" placeholder="Confirme ton mot de passe" id="passwordConfirm" name="passwordConfirm" required>
+        <div class="input-container">
+            <label for="password" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">Le mot de passe doit faire plus de 6 caractères</label>
+            <input type="password" placeholder="Mot de passe" id="password" formControlName="password">
+        </div>
 
-        <label for="pseudo"></label>
-        <input type="text" placeholder="Pseudo"  id="pseudo" name="pseudo" required>
+        <div class="input-container">
+            <label for="passwordConfirm" *ngIf="signupForm.get('passwordConfirm')?.invalid && signupForm.get('passwordConfirm')?.touched">Les mots de passe doivent être identiques</label>
+            <input type="password" placeholder="Confirme ton mot de passe" id="passwordConfirm" formControlName="passwordConfirm">
+        </div>
 
-        <button class="signup-button" type="submit">Inscription</button>
+        <div class="input-container">
+            <label for="pseudo"></label>
+            <input type="text" placeholder="Pseudo" id="pseudo" formControlName="pseudo">
+        </div>
+
+        <div class="button-container">
+            <button class="signup-button" (click)="onSubmit()" type="submit" [disabled]="signupForm.invalid" matTooltip="Attention, il faut remplir correctement les champs précédents">Inscription</button>
+            <p *ngIf="errorMsg">ATTENTION, Si 400 : Peut-être l'email non valide ? Le serveur est plus sévère, attention <br>{{ errorMsg }}</p>
+        </div>
     </form>
 </div>

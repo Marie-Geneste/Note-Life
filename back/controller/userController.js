@@ -19,14 +19,14 @@ const userController = {
     async handleSignUpFormSubmission(req, res) {
 
         const {
-            username,
             email,
             password,
-            passwordConfirm
+            passwordConfirm,
+            pseudo
         } = req.body;
 
         // Sanitize user inputs to prevent XSS attacks
-        const cleanUsername = sanitizeHtml(username);
+        const cleanUsername = sanitizeHtml(pseudo);
         const cleanEmail = sanitizeHtml(email);
 
         // Check if all fields are filled
@@ -60,16 +60,16 @@ const userController = {
 
             // Create a new user
             const newUser = await User.create({
-                username: cleanUsername,
                 email: cleanEmail,
-                password: hashedPassword
+                password: hashedPassword,
+                pseudo: cleanUsername
             });
 
             // Send a success response with user information
             res.status(201).json({
                 user: {
                     id: newUser.id,
-                    name: newUser.username,
+                    pseudo: newUser.pseudo,
                     email: newUser.email,
                 },
             });
@@ -160,28 +160,21 @@ const userController = {
         const userFound = await User.findById(userId);
         //refactoriser avec le rest operator pour envoyer qu'une partie des données
         // eslint-disable-next-line no-unused-vars
-        const { id, email, password, ...filtredUserInfo } = { id: userFound.id, email: userFound.email, password: userFound.password, username : userFound.username, biography : userFound.biography, role_id: userFound.role_id};
+        const { id, email, password, ...filtredUserInfo } = { id: userFound.id, email: userFound.email, password: userFound.password, pseudo : userFound.pseudo };
         //renvoyer le user trouvé dans la réponse json
         res.json({ filtredUserInfo })
     },
 
     async updateUser(req, res) {
         //on destructure les infos du user
-        const {  username,  biography } = req.body;
+        const { pseudo } = req.body;
 
-        // if (!email && !username && !password) { // Si le client veut faire un update sans préciser aucun nouveau champs, on bloque.
-        //     return res.status(400).json({ error: "Invalid body. Should provide at least a 'username', 'email' or 'password' property" });
-        // }
         const userId = req.token.sub;
         //trouver l'user correspondant à l'id
         const userToUpdate = await User.findById(userId);
 
-        if (username !== undefined) { // Si il y a une nouveau pseudo
-            userToUpdate.username = username;
-        }
-
-        if (biography !== undefined) { // Si il y a une nouveau pseudo
-            userToUpdate.biography = biography;
+        if (pseudo !== undefined) { // Si il y a un nouveau pseudo
+            userToUpdate.pseudo = pseudo;
         }
 
         await userToUpdate.save();
