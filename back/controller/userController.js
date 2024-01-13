@@ -157,11 +157,9 @@ const userController = {
         const userId = req.token.sub;
         //trouver l'user correspondant à l'id
         const userFound = await User.findById(userId);
-        //refactoriser avec le rest operator pour envoyer qu'une partie des données
-        // eslint-disable-next-line no-unused-vars
-        const { id, email, password, ...filtredUserInfo } = { id: userFound.id, email: userFound.email, password: userFound.password, pseudo : userFound.pseudo };
-        //renvoyer le user trouvé dans la réponse json
-        res.json({ filtredUserInfo })
+        
+        //renvoyer les infos voulues du user trouvé dans la réponse json
+        res.json({ id: userFound.id, email: userFound.email, pseudo : userFound.pseudo })
     },
 
     async updateUser(req, res) {

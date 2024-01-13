@@ -4,20 +4,18 @@
         <a href="/notes"><button class="back-button">Retour aux notes</button></a> 
     </div>
 
-    <form action="/" method="post" class="input-profile-container">
+    <form class="input-profile-container">
         <div class="label">
-            <label for="email">Email : coucou@gmail.com</label>
-            <input type="email" placeholder="coucou@gmail.com" id="email" name="email" required>
+            <label for="email">Email : {{ email }} </label>
         </div>
         
         <div class="label">
-            <label for="password">Password : azerty</label>
-            <input type="password" placeholder="azerty" id="password" name="password" required> 
+            <label for="password">Password : Pour des raisons évidentes de sécurité, le mot de passe n'est pas affiché.</label>
         </div>
         
         <div class="label">
-            <label for="pseudo">Pseudo : Naya</label>
-            <input type="text" placeholder="Naya"  id="pseudo" name="pseudo" required> 
+            <label for="pseudo">Pseudo : {{ pseudo }}</label>
+            <input type="text" placeholder="{{ pseudo }}"  id="pseudo" name="pseudo" required> 
         </div>
         
         <div class="button-container">
