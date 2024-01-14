@@ -124,7 +124,7 @@ const userController = {
             };
 
             const token = jwt.sign(payload, process.env.JWT_SECRET, {
-                expiresIn: "1h",
+                expiresIn: "12h",
             });
 
             // res.cookie("jwt", token, {
@@ -146,11 +146,11 @@ const userController = {
         }
     },
 
-    logout(req, res) {
-        // res.clearCookie("jwt")
-        // et on renvoie une réponse JSON indiquant que l'utilisateur a été déconnecté
-        res.json({ message: "Utilisateur déconnecté" });
-    },
+    //logout(req, res) {
+        //res.clearCookie("jwt") si utilisation d'un cookie pour le token
+        //on peut aussi renvoyer une réponse JSON indiquant que l'utilisateur a été déconnecté
+        //res.json({ message: "Utilisateur déconnecté" });
+   // },
 
     //middleware qui récupère les info du user à partir de l'id précédent
     async getUserInfo(req, res) {

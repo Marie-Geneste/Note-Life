@@ -41,6 +41,10 @@ export class ProfilePageComponent {
       width: '35vw',
     });
   }
+
+  logout(): void {
+    this.authService.logout();
+  }
 }
 
 
