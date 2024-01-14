@@ -29,3 +29,4 @@ Avancées au 15/01/2024 :
     - confirmation du mot de passe, 
     - mot de passe supérieur à 6 caractères, 
     - message d'erreur qui apparaît aux différents niveau pour aider au mieux l'utilisateur au niveau de l'inscription et de la connexion sans pour autant en affecter la sécurité (email ou mot de passe invalide au niveau de la connexion pour éviter l'attaque d'un des champs en particulier).
+    - Désactivation des bouton de soumission de formulaire si les vérifications ne sont pas toutes validées avec utilisation du matToolTip
