@@ -182,14 +182,13 @@ const userController = {
 
     async deleteUser(req, res) {
         const userId = req.token.sub;
-        //trouver l'user correspondant à l'id
         const userToDelete = await User.findById(userId);
 
         if (!userToDelete) {
             return res.status(404).json({ error: "User not found. Please verify the provided id." });
         }
 
-        await userToDelete.remove();
+        await userToDelete.deleteOne();
 
         // Réponse
         res.status(204).end();

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -30,7 +30,8 @@ import { Page404Component } from './page404/page404.component';
     MatDialogModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

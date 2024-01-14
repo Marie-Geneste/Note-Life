@@ -32,6 +32,7 @@ const userMiddleware = {
         //vérifie s'il y a un token / si je suis connecté / si il y a user.id dans le token
         //message d'erreur si token non trouvé
         const token = req.token
+
         if (!token) {
             return res.status(401).json({
                 message: 'User is not logged'

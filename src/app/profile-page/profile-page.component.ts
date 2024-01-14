@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import {
   MatDialog,
 } from '@angular/material/dialog';
@@ -44,6 +44,21 @@ export class ProfilePageComponent {
 
   logout(): void {
     this.authService.logout();
+  }
+
+  @ViewChild('pseudoInput') pseudoInput!: ElementRef<HTMLInputElement>;
+
+  handleEditClick(): void {
+    const modifiedPseudo = this.pseudoInput.nativeElement.value;
+    this.authService.modifyPseudo(modifiedPseudo).subscribe(
+      (response) => {
+        this.pseudo = modifiedPseudo;
+        console.log('Pseudo modifié avec succès !');
+      },
+      (error) => {
+        console.error('Erreur lors de la modification du pseudo :', error);
+      }
+    );
   }
 }
 

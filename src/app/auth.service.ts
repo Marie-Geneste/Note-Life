@@ -85,4 +85,31 @@ export class AuthService {
     // Rediriger vers la page de connexion après la déconnexion
     this.router.navigate(['']); 
   }
+
+  modifyPseudo(newPseudo: string): Observable<any> {
+    const token = sessionStorage.getItem('token');
+
+    // Vérifie si le token est présent
+    if (!token) {
+      return new Observable(observer => observer.error('Token manquant'));
+    }
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const body = { pseudo: newPseudo };
+    
+    return this.http.patch<any>(`${this.apiUrl}/user/me`, body, { headers });
+  }
+
+  deleteUser():  Observable<any> {
+    const token = sessionStorage.getItem('token');
+    
+    // Vérifie si le token est présent
+    if (!token) {
+      return new Observable(observer => observer.error('Token manquant'));
+    }
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    
+    return this.http.delete<any>(`${this.apiUrl}/user/me`, { headers });
+  }
 }

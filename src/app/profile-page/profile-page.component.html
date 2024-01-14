@@ -1,29 +1,29 @@
 <div class="profile-page-container">
     <div class="title-back">
+        <button class="delete-button" (click)="openDialog()">Supprimer</button>
         <div class="title-profile">Profil Utilisateur</div>
         <a href="/notes"><button class="back-button">Retour aux notes</button></a> 
     </div>
 
     <form class="input-profile-container">
         <div class="label">
-            <label for="email">Email : {{ email }} </label>
+            <p>Email : {{ email }} </p>
         </div>
         
         <div class="label">
-            <label for="password">Password : Pour des raisons évidentes de sécurité, le mot de passe n'est pas affiché.</label>
+            <p>Password : Pour des raisons évidentes de sécurité, le mot de passe n'est pas affiché.</p>
         </div>
         
         <div class="label">
             <label for="pseudo">Pseudo : {{ pseudo }}</label>
-            <input type="text" placeholder="{{ pseudo }}"  id="pseudo" name="pseudo" required> 
+            <input type="text" #pseudoInput placeholder="{{ pseudo }}"  id="pseudo" formControlName="pseudo"> 
         </div>
         
         <div class="button-container">
-            <button class="delete-button" (click)="openDialog()">Supprimer</button>
-            <button class="edit-button" type="submit">Modifier</button>
+            
+            <button class="edit-button" type="submit" (click)="handleEditClick()">Modifier</button>
         </div>
     </form>
-
     <div class="logout-container">
         <div class="logout-title">Déconnexion</div>
         <a href="#" (click)="logout()"><img src="../../assets/images/power-off-solid.svg" alt="power off" class="power-off-img"></a>
